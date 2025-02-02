@@ -1,20 +1,20 @@
 :root {
     --clr-dark: #000000;
     --clr-light: #ffffff;
-    --clr-primary-a0 : #00415A;
+    --clr-primary-a0: #00415A;
     --clr: light-dark(var(--clr-light), var(--clr-dark));
     --clr-text: light-dark(var(--clr-dark), var(--clr-light));
-    --clr-primary-a10: light-dark(#1a485e,#28546b);
-    --clr-primary-a20: light-dark(#2a4e62,#44677c);
-    --clr-primary-a30: light-dark(#385567,#5e7b8e);
-    --clr-primary-a40: light-dark(#455c6b,#7890a0);
-    --clr-primary-a50: light-dark(#51636f,#92a5b2);
-    --clr-surface-a0 : light-dark(#e5ecee,#222222);
-    --clr-surface-a10: light-dark(#d9dfe1,#373737);
-    --clr-surface-a20: light-dark(#ced3d5,#4c4c4c);
-    --clr-surface-a30: light-dark(#c2c7c8,#636363);
-    --clr-surface-a40: light-dark(#b7bbbc,#7b7b7b);
-    --clr-surface-a50: light-dark(#acaeaf,#949494);
+    --clr-primary-a10: light-dark(#1a485e, #28546b);
+    --clr-primary-a20: light-dark(#2a4e62, #44677c);
+    --clr-primary-a30: light-dark(#385567, #5e7b8e);
+    --clr-primary-a40: light-dark(#455c6b, #7890a0);
+    --clr-primary-a50: light-dark(#51636f, #92a5b2);
+    --clr-surface-a0: light-dark(#e5ecee, #222222);
+    --clr-surface-a10: light-dark(#d9dfe1, #373737);
+    --clr-surface-a20: light-dark(#ced3d5, #4c4c4c);
+    --clr-surface-a30: light-dark(#c2c7c8, #636363);
+    --clr-surface-a40: light-dark(#b7bbbc, #7b7b7b);
+    --clr-surface-a50: light-dark(#acaeaf, #949494);
     color-scheme: light;
 }
 
@@ -22,7 +22,9 @@ html[theme="dark"]:root {
     color-scheme: dark;
 }
 
-*, :after, :before {
+*,
+:after,
+:before {
     box-sizing: border-box;
 }
 
@@ -51,7 +53,7 @@ header {
     top: 0;
 }
 
-header .top .logo{
+header .top .logo {
     margin: 0;
     font-size: 30px;
     line-height: 35px;
@@ -102,7 +104,7 @@ header .pages {
     background-color: var(--clr-primary-a20);
 }
 
-section h1{
+section h1 {
     margin: 2px;
     font-size: 40px;
 }
@@ -126,7 +128,7 @@ hero {
     flex-wrap: wrap;
     padding: 20%;
     background: #00415A;
-    background: radial-gradient(circle, rgba(0,65,90,0.5) 0%, rgba(40,84,107,0.75) 100%);
+    background: radial-gradient(circle, rgba(0, 65, 90, 0.5) 0%, rgba(40, 84, 107, 0.75) 100%);
 }
 
 hero h1 {
@@ -135,24 +137,27 @@ hero h1 {
     font-weight: 1000;
     color: color-mix(in srgb, var(--clr-text) 60%, #00000000 40%);
     background-color: #acaeaf;
-    background: radial-gradient(circle, rgba(172,174,175,1) 0%, rgba(148,148,148,1) 45%, rgba(81,99,111,1) 100%);
+    background: radial-gradient(circle, rgba(172, 174, 175, 1) 0%, rgba(148, 148, 148, 1) 45%, rgba(81, 99, 111, 1) 100%);
     background-clip: text;
     margin: 10px auto;
     animation: smoothBg 2s continue;
 }
+
 @media (max-width: 500px) {
     hero h1 {
         font-size: 44px;
     }
 }
+
 @keyframes smoothBg {
     from {
-      color: red;
+        color: red;
     }
+
     to {
-      color: blue;
+        color: blue;
     }
-  }
+}
 
 hero p {
     width: 100%;
@@ -258,7 +263,7 @@ section .brandname {
 }
 
 @media (min-width: 768px) {
-    .cards .card  {
+    .cards .card {
         flex: 1 1 auto;
         max-width: 33%;
         width: 33%;
@@ -279,12 +284,75 @@ footer .btm-ln {
     text-align: center;
 }
 
-@keyframes blink-animation {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+
     0%,
+    20%,
+    50%,
+    80%,
     100% {
-      opacity: 1;
+        transform: translateY(0);
     }
-    50% {
-      opacity: 0;
+
+    40% {
+        transform: translateY(-10px);
     }
-  }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.btn-animate {
+    background-color: var(--clr-primary-a0);
+    color: var(--clr-light);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-animate:hover {
+    background-color: var(--clr-primary-a20);
+    animation: bounce 0.5s;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--clr-surface-a10);
+    border-radius: 12px;
+    background-color: var(--clr-surface-a10);
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--clr-surface-a10);
+    border-radius: 3px;
+}
